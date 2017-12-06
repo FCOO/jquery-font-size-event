@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="da" style="_font-size: 100%">
+<head>
+    <title>fcoo.dk - jquery-font-size-event - Demo</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv='x-dns-prefetch-control' content='on'>
+
+    <meta name='copyright' content='FCOO'>
+    <meta name='owner' content='FCOO'>
+    <style>
+        .slider-container {
+            width  : 25rem;
+            height : 9rem;
+            border : 0.12rem solid red; 
+            padding:.25rem;
+            margin-left: 2rem;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>Change browser front-size below and see console</div>
+    <div>
+        <input type="radio" class="scaleRadio" name="options" id="option1" value="60" autocomplete="off"><label for="option1">60%</label>
+        <input type="radio" class="scaleRadio" name="options" id="option2" value="80" autocomplete="off"><label for="option2">80%</label>
+        <input type="radio" class="scaleRadio" name="options" id="option3" value="100" autocomplete="off" checked><label for="option3">100%</label>
+        <input type="radio" class="scaleRadio" name="options" id="option4" value="120" autocomplete="off"><label for="option4">120%</label>
+        <input type="radio" class="scaleRadio" name="options" id="option5" value="150" autocomplete="off"><label for="option5">150%</label>
+        <input type="radio" class="scaleRadio" name="options" id="option6" value="300" autocomplete="off"><label for="option6">300%</label>
+    </div>
+
+
+
+	
+	
+	<script src="bower_components.js"></script>
+	<script src="../src/jquery-font-size-event.js"></script>
+	<script>
+        $('.scaleRadio').on( 'change', function(event) {
+            var percent = 16*parseInt($(event.target).attr('value'))/100;
+            $('html').css('font-size', percent+'px');
+        });
+
+        $.onFontSizeChanged( function( e, fontSize ){
+            console.log('fontSize=', fontSize );
+        });
+	</script>
+</body>
+</html>
